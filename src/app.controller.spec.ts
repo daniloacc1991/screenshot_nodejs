@@ -16,7 +16,7 @@ describe('AppController', () => {
 
   describe('', () => {
     const result = { image: expect.any(String) }
-    it('should return url to screenshot', async () => {
+    it('should return the url of the screenshot', async () => {
       expect(await appController.screenshot({ url: 'http:www.google.com' })).toStrictEqual(result);
     });
   });
