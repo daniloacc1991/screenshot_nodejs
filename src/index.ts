@@ -25,7 +25,7 @@ async function main() {
             const page = await broswer.newPage();
             await page.goto(`https://${req.body.path}`);
             await page.screenshot({ path: `C:\\screeenshot\\screenshot_${uuidv4()}.jpg`, quality: 50, type: "jpeg" });
-            return `screenshot_${uuidv4()}.jpg`;
+            return `localhost:${process.env.PORT}screenshot_${uuidv4()}.jpg`;
         });
 
         return app.listen(port, host, () => {
