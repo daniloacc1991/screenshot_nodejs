@@ -23,6 +23,8 @@ if (cluster.isMaster) {
     });
 } else {
     async function bootstrap() {
+        process.setMaxListeners(0);
+
         const app = await NestFactory.create(AppModule);
         app.use(express.static(process.env.PATH_STATIC));
 
@@ -33,7 +35,7 @@ if (cluster.isMaster) {
             validationError: { target: true, value: true },
         }));
 
-        await app.listen(process.env.PORT);
+        await app.listen(process.env.PORT, process.env.HOST);
     }
     bootstrap();
 }

@@ -10,6 +10,7 @@ export class AppService {
         const page = await broswer.newPage();
         await page.goto(body.url);
         await page.screenshot({ path: `C:\\screeenshot\\screenshot_${uuidv4()}.jpg`, quality: 50, type: "jpeg" });
+        await broswer.close();
         return { image: `screenshot_${uuidv4()}.jpg` };
     }
 }
